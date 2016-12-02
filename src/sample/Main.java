@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -26,7 +25,7 @@ public class Main extends Application {
 
 
     public TextField inputID ;
-    public TextField inputIPassword ;
+    public PasswordField inputIPassword ;
     public TextField Registeration_Name ;
     public TextField Registeration_Balance ;
     public TextField Registeration_Bank_Name ;
@@ -129,14 +128,12 @@ public class Main extends Application {
     public void Signup_button()
     {
         stage2 = (Stage) LogIn.getScene().getWindow();
-        stage2.close();
-        //Parent root= null;
         try {
             root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stage2.setTitle("Log In");
+        stage2.setTitle("Sign Up");
         stage2.setScene(new Scene(root));
         stage2.show();
         stage3 = stage2 ;
@@ -148,7 +145,6 @@ public class Main extends Application {
         MBalance = Registeration_Balance.getText() ;
         Bank_Name = Registeration_Bank_Name.getText() ;
         if(!(MName.isEmpty() || R_Password.isEmpty() || MBalance.isEmpty() || Bank_Name.isEmpty())) {
-            //stage2.close();
             dos.writeUTF("r");
             dos.writeUTF(MName);
             dos.writeUTF(R_Password);
@@ -228,6 +224,7 @@ public class Main extends Application {
         String history = dis.readUTF();
         JFrame parent = new JFrame();
         JOptionPane.showMessageDialog(parent,history,"Transaction History", JOptionPane.INFORMATION_MESSAGE);
+        parent.dispose();
     }
 
     public  void Logout_Button (){
