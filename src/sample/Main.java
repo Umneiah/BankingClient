@@ -14,10 +14,6 @@ import javax.swing.JOptionPane;
 public class Main extends Application {
 
     public static Socket c ;
-    public static Stage stage1;
-    public static Stage stage2;
-    public static Stage stage3;
-    public static Stage stage5;
     public static Stage PStage;
     public static DataInputStream dis;
     public static DataOutputStream dos;
@@ -75,9 +71,6 @@ public class Main extends Application {
             PStage.setTitle("Log In");
             PStage.setScene(new Scene(root, 400, 300));
             PStage.show();
-            stage1 = primaryStage;
-            stage5 = primaryStage;
-
     }
 
 
@@ -106,10 +99,9 @@ public class Main extends Application {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    stage1.setTitle("Client Control");
-                    stage1.setScene(new Scene(root, 600, 400));
-                    stage1.show();
-                    stage2 = stage1;
+                    PStage.setTitle("Client Control");
+                    PStage.setScene(new Scene(root, 600, 400));
+                    PStage.show();
                 } else {
                     // pop up window
                 }
@@ -127,16 +119,14 @@ public class Main extends Application {
 
     public void Signup_button()
     {
-        stage2 = (Stage) LogIn.getScene().getWindow();
         try {
             root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stage2.setTitle("Sign Up");
-        stage2.setScene(new Scene(root));
-        stage2.show();
-        stage3 = stage2 ;
+        PStage.setTitle("Sign Up");
+        PStage.setScene(new Scene(root));
+        PStage.show();
     }
 
     public void Register_button() throws IOException {
@@ -156,10 +146,9 @@ public class Main extends Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            stage1.setTitle("Client Control");
-            stage1.setScene(new Scene(root, 600, 400));
-            stage1.show();
-            stage2 = stage1;
+            PStage.setTitle("Client Control");
+            PStage.setScene(new Scene(root, 600, 400));
+            PStage.show();
         }
         else
         {
