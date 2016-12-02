@@ -84,6 +84,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
     }
 
 
@@ -225,8 +226,8 @@ public class Main extends Application {
     public  void Transaction_History_Button() throws IOException {
         dos.writeUTF("t");
         String history = dis.readUTF();
-        final JFrame parent = new JFrame();
-        JOptionPane.showMessageDialog(parent,history,"History",1);
+        JFrame parent = new JFrame();
+        JOptionPane.showMessageDialog(parent,history,"Transaction History", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public  void Logout_Button (){
