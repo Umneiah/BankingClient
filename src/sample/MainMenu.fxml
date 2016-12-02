@@ -25,7 +25,7 @@
         <Button fx:id="TransactionHistory" layoutX="220.0" layoutY="320.0" mnemonicParsing="false" onAction="#Transaction_History_Button" text="Transaction History" />
       <TextField fx:id="Deposite_amount" layoutX="220.0" layoutY="180.0" onAction="#D_Button" />
       <Button fx:id="ShowDetails" layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onAction="#main_showdetails_button" text="ShowDetails" />
-      <Label fx:id="transs" layoutX="50.0" layoutY="430.0" />
+      <Label fx:id="transs" layoutX="10.0" layoutY="400.0" />
       <Label layoutX="90.0" layoutY="25.0" text="ID" />
       <Label fx:id="ID_label" layoutX="218.0" layoutY="25.0" text="Click ShowDetails" />
     </children>

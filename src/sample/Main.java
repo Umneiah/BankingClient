@@ -6,9 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import jdk.internal.dynalink.beans.StaticClass;
-
-import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 
@@ -18,12 +15,50 @@ public class Main extends Application {
     public static Stage stage1;
     public static Stage stage2;
     public static Stage stage3;
-    public static Stage stage4;
     public static Stage stage5;
     public static Stage PStage;
     public static DataInputStream dis;
     public static DataOutputStream dos;
     public static Parent root;
+
+
+    public TextField inputID ;
+    public TextField inputIPassword ;
+    public TextField Registeration_Name ;
+    public TextField Registeration_Balance ;
+    public TextField Registeration_Bank_Name ;
+    public PasswordField Registeration_Password;
+    public TextField Deposite_amount ;
+    public TextField Withdraw_amount ;
+    public TextField Transaction_amount ;
+    public TextField Transaction_another_id ;
+    public TextField Transaction_Bank_Name ;
+    public Button LogIn ;
+    public Button Register ;
+    public Button Deposite ;
+    public Button Withdraw ;
+    public Button Transacion ;
+    public Button TransactionHistory ;
+    public Button ShowDetails ;
+    public Button Logout ;
+    public Label transs;
+    public  Label MainMenu_Name ;
+    public  Label MainMenu_Balance ;
+    public  Label ID_label ;
+
+
+    public static String ID ;
+    public  String Password ;
+    public  String R_Password ;
+    public  String Balance ;
+    public  String Bank_Name ;
+    public  String W_ammount ;
+    public  String D_ammount ;
+    public  String T_amount ;
+    public  String T_another_id ;
+    public  String T_bank_name ;
+    public static String MName ;
+    public  static String MBalance ;
 
     public Main() throws IOException {
     }
@@ -48,71 +83,37 @@ public class Main extends Application {
         launch(args);
     }
 
-    public TextField inputID ;
-    public TextField inputIPassword ;
-    public TextField Registeration_Name ;
-    public TextField Registeration_Balance ;
-    public TextField Registeration_Bank_Name ;
-    public PasswordField Registeration_Password;
-    public TextField Deposite_amount ;
-    public TextField Withdraw_amount ;
-    public TextField Transaction_amount ;
-    public TextField Transaction_another_id ;
-    public TextField Transaction_Bank_Name ;
-    public Button LogIn ;
-    public Button Register ;
-    public Button Deposite ;
-    public Button Withdraw ;
-    public Button Transacion ;
-    public Button TransactionHistory ;
-    public Button ShowDetails ;
-    public Button ShowID ;
-    public Button Logout ;
-    public Label transs;
-    public  Label MainMenu_Name ;
-    public  Label MainMenu_Balance ;
-    public  Label ID_label ;
-
-
-    public static String ID ;
-    public  String Password ;
-    public  String R_Password ;
-    public  String Name ;
-    public  String Balance ;
-    public  String Bank_Name ;
-    public  String W_ammount ;
-    public  String D_ammount ;
-    public  String T_amount ;
-    public  String T_another_id ;
-    public  String T_bank_name ;
-    public static String MName ;
-    public  static String MBalance ;
 
     public void LogIn_button()  {
         try {
 
 
             ID = inputID.getText();
-            Password = inputIPassword.getText();String jf="l";
-            dos.writeUTF(jf);
-            dos.writeUTF(ID);
-            dos.writeUTF(Password);
-            MName = dis.readUTF();
-            if (!MName.equals("no")) {
-                MBalance = dis.readUTF();
-                try {
-                    root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+            Password = inputIPassword.getText();
+            if(!ID.isEmpty() || !Password.isEmpty()) {
+                dos.writeUTF("l");
+                dos.writeUTF(ID);
+                dos.writeUTF(Password);
+                MName = dis.readUTF();
+                if (!MName.equals("no")) {
+                    PStage.close();
+                    MBalance = dis.readUTF();
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    stage1.setTitle("Client Control");
+                    stage1.setScene(new Scene(root, 650, 600));
+                    stage1.show();
+                    stage2 = stage1;
+                } else {
+                    // pop up window
                 }
-                stage1.setTitle("Client Control");
-                stage1.setScene(new Scene(root, 600, 600));
-                stage1.show();
-               // MainMenu_Name.setText(MName);
-                //MainMenu_Balance.setText(MBalance);
-                stage2 = stage1;
-            } else {
-                // pop up window
+            }
+            else
+            {
+                //pop up
             }
         }
         catch (Exception f)
@@ -138,25 +139,32 @@ public class Main extends Application {
     }
 
     public void Register_button() throws IOException {
-        dos.writeUTF("r");
         MName = Registeration_Name.getText() ;
         R_Password = Registeration_Password.getText() ;
         MBalance = Registeration_Balance.getText() ;
         Bank_Name = Registeration_Bank_Name.getText() ;
-        dos.writeUTF(MName);
-        dos.writeUTF(R_Password);
-        dos.writeUTF(MBalance);
-        dos.writeUTF(Bank_Name);
-        ID = dis.readUTF();
-        try {
-            root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(!(MName.isEmpty() || R_Password.isEmpty() || MBalance.isEmpty() || Bank_Name.isEmpty())) {
+            //stage2.close();
+            dos.writeUTF("r");
+            dos.writeUTF(MName);
+            dos.writeUTF(R_Password);
+            dos.writeUTF(MBalance);
+            dos.writeUTF(Bank_Name);
+            ID = dis.readUTF();
+            try {
+                root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage1.setTitle("Client Control");
+            stage1.setScene(new Scene(root, 650, 600));
+            stage1.show();
+            stage2 = stage1;
         }
-        stage1.setTitle("Client Control");
-        stage1.setScene(new Scene(root, 600, 600));
-        stage1.show();
-        stage2 = stage1;
+        else
+        {
+            //pop up
+        }
     }
 
     public  void W_Button() throws IOException {
