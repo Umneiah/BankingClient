@@ -8,6 +8,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.Socket;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Main extends Application {
 
@@ -104,7 +107,7 @@ public class Main extends Application {
                         e.printStackTrace();
                     }
                     stage1.setTitle("Client Control");
-                    stage1.setScene(new Scene(root, 650, 600));
+                    stage1.setScene(new Scene(root, 600, 400));
                     stage1.show();
                     stage2 = stage1;
                 } else {
@@ -157,7 +160,7 @@ public class Main extends Application {
                 e.printStackTrace();
             }
             stage1.setTitle("Client Control");
-            stage1.setScene(new Scene(root, 650, 600));
+            stage1.setScene(new Scene(root, 600, 400));
             stage1.show();
             stage2 = stage1;
         }
@@ -222,7 +225,8 @@ public class Main extends Application {
     public  void Transaction_History_Button() throws IOException {
         dos.writeUTF("t");
         String history = dis.readUTF();
-        transs.setText(history);
+        final JFrame parent = new JFrame();
+        JOptionPane.showMessageDialog(parent,history,"History",1);
     }
 
     public  void Logout_Button (){
