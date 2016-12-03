@@ -229,8 +229,9 @@ public class Main extends Application {
 
     }
 
-    public void main_showdetails_button()
-    {
+    public void main_showdetails_button() throws IOException {
+        dos.writeUTF("u");
+        MBalance = dis.readUTF();
         ID_label.setText(ID);
         MainMenu_Name.setText(MName);
         MainMenu_Balance.setText(MBalance);
