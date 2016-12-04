@@ -19,6 +19,7 @@ public class Main extends Application {
     public static DataOutputStream dos;
     public static Parent root;
 
+    public static JFrame popup;
 
     public TextField inputID ;
     public PasswordField inputIPassword ;
@@ -31,6 +32,7 @@ public class Main extends Application {
     public TextField Transaction_amount ;
     public TextField Transaction_another_id ;
     public TextField Transaction_Bank_Name ;
+
     public Button LogIn ;
     public Button Register ;
     public Button Deposite ;
@@ -39,6 +41,8 @@ public class Main extends Application {
     public Button TransactionHistory ;
     public Button ShowDetails ;
     public Button Logout ;
+    public Button BackToLog;
+
     public Label transs;
     public  Label MainMenu_Name ;
     public  Label MainMenu_Balance ;
@@ -82,8 +86,6 @@ public class Main extends Application {
 
     public void LogIn_button()  {
         try {
-
-
             ID = inputID.getText();
             Password = inputIPassword.getText();
             if(!ID.isEmpty() || !Password.isEmpty()) {
@@ -104,11 +106,17 @@ public class Main extends Application {
                     PStage.show();
                 } else {
                     // pop up window
+                    JFrame popup = new JFrame();
+                    JOptionPane.showMessageDialog(popup, "Please Enter a Vaild ID and Password", "Error", JOptionPane.ERROR_MESSAGE);
+                    popup.dispose();
                 }
             }
             else
             {
                 //pop up
+                JFrame popup = new JFrame();
+                JOptionPane.showMessageDialog(popup, "You Should Enter a Valid Entry", "Error", JOptionPane.ERROR_MESSAGE);
+                popup.dispose();
             }
         }
         catch (Exception f)
@@ -153,6 +161,9 @@ public class Main extends Application {
         else
         {
             //pop up
+            JFrame popup = new JFrame();
+            JOptionPane.showMessageDialog(popup, "You Should Enter a Valid Entry", "Error", JOptionPane.ERROR_MESSAGE);
+            popup.dispose();
         }
     }
 
@@ -169,6 +180,9 @@ public class Main extends Application {
         else
         {
             //pop up
+            JFrame popup = new JFrame();
+            JOptionPane.showMessageDialog(popup, "Please Check Your Balance and Enter a Valid Amount", "Error", JOptionPane.ERROR_MESSAGE);
+            popup.dispose();
         }
     }
 
@@ -204,6 +218,10 @@ public class Main extends Application {
             MainMenu_Balance.setText(MBalance);
         }else{
             //pop window
+            JFrame popup = new JFrame();
+            JOptionPane.showMessageDialog(popup, "Please Check Your Balance and Enter a Valid Amount", "Error", JOptionPane.ERROR_MESSAGE);
+            popup.dispose();
+
         }
 
     }
@@ -235,6 +253,18 @@ public class Main extends Application {
         ID_label.setText(ID);
         MainMenu_Name.setText(MName);
         MainMenu_Balance.setText(MBalance);
+    }
+
+    public void BackTo()
+    {
+        try {
+            root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PStage.setTitle("Log In");
+        PStage.setScene(new Scene(root, 400, 300));
+        PStage.show();
     }
 
 
