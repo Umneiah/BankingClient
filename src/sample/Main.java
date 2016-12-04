@@ -107,7 +107,7 @@ public class Main extends Application {
                 } else {
                     // pop up window
                     JFrame popup = new JFrame();
-                    JOptionPane.showMessageDialog(popup, "Please Enter a Vaild ID and Password", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(popup, "Incorrect ID or Password", "Error", JOptionPane.ERROR_MESSAGE);
                     popup.dispose();
                 }
             }
@@ -115,7 +115,7 @@ public class Main extends Application {
             {
                 //pop up
                 JFrame popup = new JFrame();
-                JOptionPane.showMessageDialog(popup, "You Should Enter a Valid Entry", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(popup, "You Must Fill in all of The Fields", "Error", JOptionPane.ERROR_MESSAGE);
                 popup.dispose();
             }
         }
@@ -162,7 +162,7 @@ public class Main extends Application {
         {
             //pop up
             JFrame popup = new JFrame();
-            JOptionPane.showMessageDialog(popup, "You Should Enter a Valid Entry", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(popup, "You Must Fill in all of The Fields", "Error", JOptionPane.ERROR_MESSAGE);
             popup.dispose();
         }
     }
