@@ -11,20 +11,20 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Main">
     <children>
-        <Label layoutX="134.0" layoutY="106.0" text="Name" />
-        <Label layoutX="129.0" layoutY="155.0" text="Balance" />
-        <Label layoutX="130.0" layoutY="218.0" text="Bank Name" />
+        <Label layoutX="129.0" layoutY="219.0" text="Bank Name" />
         <Button fx:id="Register" layoutX="301.0" layoutY="305.0" mnemonicParsing="false" onAction="#Register_button" text="Register" />
-        <TextField fx:id="Registeration_Name" layoutX="243.0" layoutY="102.0" onAction="#Register_button" />
-        <TextField fx:id="Registeration_Balance" layoutX="243.0" layoutY="163.0" onAction="#Register_button" />
-        <TextField fx:id="Registeration_Bank_Name" layoutX="243.0" layoutY="214.0" onAction="#Register_button" />
+        <TextField fx:id="Registeration_Name" layoutX="243.0" layoutY="102.0" onAction="#Register_button" promptText="Name" />
+        <TextField fx:id="Registeration_Balance" layoutX="243.0" layoutY="163.0" onAction="#Register_button" promptText="Yor Balance" />
+        <TextField fx:id="Registeration_Bank_Name" layoutX="243.0" layoutY="214.0" onAction="#Register_button" promptText="Bank Name" />
         <Label layoutX="61.0" layoutY="41.0" text="Welcome" textFill="#330bae">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-      <PasswordField fx:id="Registeration_Password" layoutX="243.0" layoutY="267.0" onAction="#Register_button" />
+      <PasswordField fx:id="Registeration_Password" layoutX="243.0" layoutY="267.0" onAction="#Register_button" promptText="Password" />
         <Button id="BackToLog" fx:id="BackToLog" layoutX="410.0" layoutY="349.0" mnemonicParsing="false" onAction="#BackTo" text="Sign In" />
-      <Label layoutX="129.0" layoutY="271.0" text="Password" />
+      <Label layoutX="130.0" layoutY="276.0" text="Password" />
+        <Label layoutX="127.0" layoutY="166.0" text="Balance" />
+        <Label layoutX="133.0" layoutY="107.0" text="Name" />
     </children>
 </Pane>
