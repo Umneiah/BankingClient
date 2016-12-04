@@ -19,13 +19,11 @@ public class Main extends Application {
     public static DataOutputStream dos;
     public static Parent root;
 
-    public static JFrame popup;
 
     public TextField inputID ;
     public PasswordField inputIPassword ;
     public TextField Registeration_Name ;
     public TextField Registeration_Balance ;
-    public TextField Registeration_Bank_Name ;
     public PasswordField Registeration_Password;
     public TextField Deposite_amount ;
     public TextField Withdraw_amount ;
@@ -41,7 +39,6 @@ public class Main extends Application {
     public Button TransactionHistory ;
     public Button ShowDetails ;
     public Button Logout ;
-    public Button BackToLog;
 
     public Label transs;
     public  Label MainMenu_Name ;
@@ -53,7 +50,6 @@ public class Main extends Application {
     public  String Password ;
     public  String R_Password ;
     public  String Balance ;
-    public  String Bank_Name ;
     public  String W_ammount ;
     public  String D_ammount ;
     public  String T_amount ;
@@ -141,13 +137,11 @@ public class Main extends Application {
         MName = Registeration_Name.getText() ;
         R_Password = Registeration_Password.getText() ;
         MBalance = Registeration_Balance.getText() ;
-        Bank_Name = Registeration_Bank_Name.getText() ;
-        if(!(MName.isEmpty() || R_Password.isEmpty() || MBalance.isEmpty() || Bank_Name.isEmpty())) {
+        if(!(MName.isEmpty() || R_Password.isEmpty() || MBalance.isEmpty())) {
             dos.writeUTF("r");
             dos.writeUTF(MName);
             dos.writeUTF(R_Password);
             dos.writeUTF(MBalance);
-            dos.writeUTF(Bank_Name);
             ID = dis.readUTF();
             try {
                 root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
@@ -253,18 +247,6 @@ public class Main extends Application {
         ID_label.setText(ID);
         MainMenu_Name.setText(MName);
         MainMenu_Balance.setText(MBalance);
-    }
-
-    public void BackTo()
-    {
-        try {
-            root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        PStage.setTitle("Log In");
-        PStage.setScene(new Scene(root, 400, 300));
-        PStage.show();
     }
 
 

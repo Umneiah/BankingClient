@@ -14,16 +14,16 @@
         <Button fx:id="Withdraw" layoutX="90.0" layoutY="140.0" mnemonicParsing="false" onAction="#W_Button" text="Withdraw" />
         <Button fx:id="Transacion" layoutX="87.0" layoutY="270.0" mnemonicParsing="false" onAction="#Transaction_Button" text="Transaction" />
         <Button fx:id="Deposite" layoutX="95.0" layoutY="180.0" mnemonicParsing="false" onAction="#D_Button" text="Deposit" />
-        <TextField fx:id="Withdraw_amount" layoutX="220.0" layoutY="140.0" onAction="#W_Button" />
+        <TextField fx:id="Withdraw_amount" layoutX="220.0" layoutY="140.0" onAction="#W_Button" promptText="Withdraw" />
         <Label layoutX="210.0" layoutY="230.0" text="Amount" />
         <Label layoutX="290.0" layoutY="230.0" text="Another ID" />
-        <Label layoutX="380.0" layoutY="230.0" text="Bank Name" />
-        <TextField fx:id="Transaction_amount" layoutX="210.0" layoutY="270.0" onAction="#Transaction_Button" prefHeight="25.0" prefWidth="70.0" />
-        <TextField fx:id="Transaction_another_id" layoutX="299.0" layoutY="270.0" onAction="#Transaction_Button" prefHeight="25.0" prefWidth="50.0" />
-        <TextField fx:id="Transaction_Bank_Name" layoutX="379.0" layoutY="270.0" onAction="#Transaction_Button" prefHeight="25.0" prefWidth="76.0" />
+        <Label layoutX="385.0" layoutY="230.0" text="Bank ID" />
+        <TextField fx:id="Transaction_amount" layoutX="210.0" layoutY="270.0" onAction="#Transaction_Button" prefHeight="25.0" prefWidth="70.0" promptText="Amount" />
+        <TextField fx:id="Transaction_another_id" layoutX="299.0" layoutY="270.0" onAction="#Transaction_Button" prefHeight="25.0" prefWidth="50.0" promptText="ID" />
+        <TextField fx:id="Transaction_Bank_Name" layoutX="379.0" layoutY="270.0" onAction="#Transaction_Button" prefHeight="26.0" prefWidth="69.0" promptText="Bank ID" />
         <Button fx:id="Logout" layoutX="491.0" layoutY="362.0" mnemonicParsing="false" onAction="#Logout_Button" text="Log Out" />
         <Button fx:id="TransactionHistory" layoutX="220.0" layoutY="320.0" mnemonicParsing="false" onAction="#Transaction_History_Button" text="Transaction History" />
-      <TextField fx:id="Deposite_amount" layoutX="220.0" layoutY="180.0" onAction="#D_Button" />
+      <TextField fx:id="Deposite_amount" layoutX="220.0" layoutY="180.0" onAction="#D_Button" promptText="Deposit" />
       <Button fx:id="ShowDetails" layoutX="400.0" layoutY="75.0" mnemonicParsing="false" onAction="#main_showdetails_button" text="ShowDetails" />
       <Label fx:id="transs" layoutX="10.0" layoutY="400.0" />
       <Label layoutX="90.0" layoutY="25.0" text="ID" />
